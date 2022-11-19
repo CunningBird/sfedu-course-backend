@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "ru.sfedu.course.backend"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -16,9 +16,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+    // Data
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.postgresql:postgresql:42.5.0")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
