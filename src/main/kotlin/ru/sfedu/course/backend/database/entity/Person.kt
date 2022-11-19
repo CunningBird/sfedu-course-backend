@@ -3,6 +3,7 @@ package ru.sfedu.course.backend.database.entity
 import javax.persistence.*
 
 @Entity
+@Table(name="person")
 data class Person(
 
     @Id
@@ -13,5 +14,8 @@ data class Person(
     var name: String? = null,
 
     var age: Int? = null,
+
+    @OneToMany(mappedBy="person", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    var accounts: List<Account> = listOf()
 )
 
