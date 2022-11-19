@@ -23,6 +23,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.postgresql:postgresql:42.5.0")
 
+    // Web
+    implementation("org.springframework.boot:spring-boot-starter-web:2.7.5")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

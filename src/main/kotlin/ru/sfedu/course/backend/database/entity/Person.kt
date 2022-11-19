@@ -1,5 +1,7 @@
 package ru.sfedu.course.backend.database.entity
 
+import org.hibernate.annotations.LazyCollection
+import org.hibernate.annotations.LazyCollectionOption
 import javax.persistence.*
 
 @Entity
@@ -16,6 +18,14 @@ data class Person(
     var age: Int? = null,
 
     @OneToMany(mappedBy="person", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    var accounts: List<Account> = listOf()
+    var accounts: List<Account> = listOf(),
+
+    @ManyToMany
+    @JoinTable(
+        name = "articles_persons",
+        joinColumns = [JoinColumn(name = "person_id")],
+        inverseJoinColumns = [JoinColumn(name = "article_id")]
+    )
+    var articles: List<Article> = listOf()
 )
 
